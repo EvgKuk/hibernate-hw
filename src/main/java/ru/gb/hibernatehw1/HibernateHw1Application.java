@@ -1,6 +1,6 @@
 package ru.gb.hibernatehw1;
 
-import org.apache.catalina.LifecycleState;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -53,10 +53,10 @@ public class HibernateHw1Application {
 		// Реализация READ 2
 		session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
-		Prodtable prodFromDb = (Prodtable) session.createQuery("SELECT i FROM Prodtable i WHERE i.id = :id", Prodtable.class)
+		Prodtable prodFromDb4 = (Prodtable) session.createQuery("SELECT i FROM Prodtable i WHERE i.id = :id", Prodtable.class)
 						.setParameter("id", 4L)
 						.getSingleResult();
-		System.out.println(prodFromDb);
+		System.out.println(prodFromDb4);
 		session.getTransaction().commit();
 
 		// Реализация READ ALL
@@ -69,8 +69,8 @@ public class HibernateHw1Application {
 		// Реализация UPDATE
 		session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
-		Prodtable prodFromDb = session.get(Prodtable.class, 1L);
-		System.out.println(prodFromDb);
+		Prodtable prodFromDb3 = session.get(Prodtable.class, 1L);
+		System.out.println(prodFromDb3);
 		prodFromDb.setPrice(100);
 		prodFromDb.setTitle("молоко");
 		session.getTransaction().commit();
@@ -78,8 +78,8 @@ public class HibernateHw1Application {
 		// Реализация DELETE
 		session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
-		Prodtable prodFromDb = session.get(Prodtable.class, 1L);
-		session.remove(prodFromDb);
+		Prodtable prodFromDb2 = session.get(Prodtable.class, 1L);
+		session.remove(prodFromDb2);
 		session.getTransaction().commit();
 
 

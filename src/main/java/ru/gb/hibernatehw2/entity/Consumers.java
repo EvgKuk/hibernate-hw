@@ -12,6 +12,12 @@ public class Consumers {
     @Column(name = "name")
     private String name;
 
+    @ManyToMany
+    @JoinTable (
+            name = "consumers_products",
+            joinColumns = @JoinColumn (name = "consumer_id"),
+            inverseJoinColumns = @JoinColumn (name = "products_id")
+    )
 
     public Long getId() {
         return id;

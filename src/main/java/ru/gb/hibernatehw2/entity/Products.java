@@ -15,6 +15,13 @@ public class Products {
     @Column(name = "price")
     private int price;
 
+    @ManyToMany
+    @JoinTable (
+            name = "consumers_products",
+            joinColumns = @JoinColumn (name = "products_id"),
+            inverseJoinColumns = @JoinColumn (name = "consumer_id")
+    )
+
     public Long getId() {
         return id;
     }
